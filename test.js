@@ -19,6 +19,12 @@ describe('Code with open parentheses in a comment', () => {
         assert.equal(parenthesesValidator(testInput), true);
     });
 });
+describe('Code with open parentheses and a semicolon in quotes', () => {
+    const testInput = `'((1 + 1) "; (code with a parenthesis in a comment ("')`;
+    it('should return true when a parentheses are quotes and the rest of the input is valid', () => {
+        assert.equal(parenthesesValidator(testInput), true);
+    });
+});
 describe('Code with valid code following an empty line after a comment should be valid', () => {
     const testInput = `(
     (5 * 2) ;; This is a comment
@@ -36,6 +42,11 @@ describe('Code with open parentheses in a comment', () => {
 describe('Code with open parentheses in quotes', () => {
     it('should return true when a parenthesis is in quotes but there are surrounding matching parentheses', () => {
         assert.equal(parenthesesValidator('("(code with open parentheses in quotes (")'), true);
+    });
+});
+describe('Code with semicolons in quotes', () => {
+    it('should return true when a parenthesis is in quotes but there are surrounding matching parentheses', () => {
+        assert.equal(parenthesesValidator('("(code ; with open parentheses in quotes (")'), true);
     });
 });
 describe('Multiline double quotes containing parentheses should not make open parentheses valid again', () => {
