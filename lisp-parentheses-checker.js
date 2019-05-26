@@ -18,6 +18,9 @@ const areParenthesesNestedProperly = function(lispCode) {
       if (char === "(") {
         openParens.push("(");
       } else if (char === ")") {
+        if (openParens.length === 0) {
+          return false;
+        }
         openParens.pop();
       }
     }
@@ -25,8 +28,6 @@ const areParenthesesNestedProperly = function(lispCode) {
   return openParens.length === 0;
 };
 
-module.exports = {
-  areParenthesesNestedProperly
-};
+module.exports = areParenthesesNestedProperly;
 
 return module.exports;

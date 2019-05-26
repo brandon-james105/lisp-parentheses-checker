@@ -5,6 +5,6 @@
 
 // The first argument is the input text
 
-var areParenthesesNestedProperly = require("./lisp-parentheses-checker").areParenthesesNestedProperly;
+var areParenthesesNestedProperly = require("./lisp-parentheses-checker");
 
 console.log(areParenthesesNestedProperly(process.argv[2]));
